@@ -1,0 +1,44 @@
+@theme {
+  --color-primary: rgba(101, 133, 148, 1); /* dragonBlue – used for hints and UI highlights */
+  --color-secondary: rgba(139, 164, 176, 1); /* dragonBlue2 – secondary UI elements */
+  --color-accent: rgba(162, 146, 163, 1); /* oniViolet – for keywords, types */
+  --color-background: rgba(24, 22, 22, 1); /* dragonBlack0 – background */
+  --color-card-background: rgba(40, 40, 50, 1);
+  --color-inset-card-background: rgba(0, 0, 0, 0.3);
+  --color-muted: rgba(84, 84, 109, 1); /* dragonGray – used for comments */
+  --color-success: rgba(111, 137, 78, 1); /* springGreen – used for diff additions */
+  --color-warning: rgba(182, 146, 46, 1); /* carpYellow – used for warnings */
+  --color-danger: rgba(196, 116, 110, 1); /* waveRed – errors, deletions */
+  --color-shadow: rgba(40, 40, 40, 0.4);
+
+  --color-foreground-default: rgba(197, 201, 197, 1); /* main foreground */
+  --color-foreground-muted: rgba(84, 84, 109, 1); /* subdued text, comments */
+  --color-foreground-link: rgba(127, 180, 202, 1); /* springBlue */
+  --color-foreground-heading: rgba(126, 156, 216, 1); /* crystalBlue */
+  --color-foreground-accent: rgba(162, 146, 163, 1); /* oniViolet */
+  --color-foreground-success: rgba(111, 137, 78, 1); /* autumnGreen */
+  --color-foreground-warning: rgba(204, 158, 74, 1); /* boatYellow1 */
+  --color-foreground-danger: rgba(196, 116, 110, 1); /* waveRed */
+  --color-foreground-critical: rgba(255, 93, 98, 1); /* peachRed */
+  --color-foreground-info: rgba(139, 164, 176, 1); /* dragonBlue2 */
+  --color-foreground-note: rgba(210, 126, 153, 1); /* sakuraPink */
+}
+
+:root {
+  @apply text-base leading-none;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}

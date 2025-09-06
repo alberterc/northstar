@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Northstar</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>Northstar</h1>
+      <span id="date"></span>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Main quest -->
+      <div id="main-quest-container" class="section-container">
+        <h2 class="section-title">Priority</h2>
+        <!-- Main quest cards container -->
+        <div class="main-quest-cards-container">
+          <div class="main-quest-card">
+            <h3 class="quest-title"></h3>
+            <p class="quest-started-at"></p>
+            <p class="quest-duration"></p>
+            <p class="quest-desc"></p>
+          </div>
+        </div>
+
+        <!-- Custom main quest context menu -->
+        <div id="contextMenu">
+          <ul id="contextMenuList">
+            <li class="font-semibold" id="ctxBtnComplete">Complete</li>
+            <li class="font-semibold" id="ctxBtnStart">Start</li>
+            <li id="ctxBtnDelete">Delete</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Daily quests -->
+      <div id="daily-quest-container" class="section-container">
+        <div class="box-section-title">
+          <span>Daily Errands</span>
+        </div>
+        <!-- Daily quest progress bar with 3 steps -->
+        <div class="daily-progress">
+          <div class="bg-muted progress-circle"></div>
+          <div class="bg-muted progress-line"></div>
+          <div class="bg-muted progress-circle"></div>
+          <div class="bg-muted progress-line"></div>
+          <div class="bg-muted progress-circle"></div>
+        </div>
+
+        <!-- Daily quest cards -->
+        <div class="cards-container">
+          <div class="card">
+            <div class="inset-card">
+              <h3 class="title"></h3>
+              <span class="note"></span>
+              <span>•</span>
+              <span class="duration"></span>
+            </div>
+            <div class="btn-container">
+              <button>Complete</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily caption -->
+        <div id="daily-quest-caption">
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Weekly quests -->
+      <div id="weekly-quest-container" class="section-container mb-0">
+        <div class="box-section-title">
+          <span>Weekly Errands</span>
+        </div>
+
+        <!-- Weekly quest cards -->
+        <div class="cards-container">
+          <div class="card">
+            <div class="inset-card">
+              <h3 class="title"></h3>
+              <span class="note"></span>
+              <span>•</span>
+              <span class="duration"></span>
+            </div>
+            <div class="btn-container">
+              <button>Complete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <button id="insert-quest-btn">Insert Quest</button>
+      <button>History</button>
+      <button>Settings</button>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

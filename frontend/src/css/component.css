@@ -1,0 +1,145 @@
+@layer components {
+  .section-container {
+    @apply mb-8;
+  }
+
+  #contextMenu {
+    @apply bg-muted shadow-shadow absolute z-1000 block hidden min-w-[150px] rounded-lg whitespace-nowrap shadow;
+  }
+
+  #contextMenu ul {
+    @apply text-foreground-default list-none rounded-lg text-sm;
+  }
+
+  #contextMenu ul li {
+    @apply cursor-pointer py-1 ps-2;
+  }
+  #contextMenu ul li:not(:last-child) {
+    @apply border-shadow border-b;
+  }
+  #contextMenu ul li:last-child {
+    @apply rounded-b-lg;
+  }
+  #contextMenu ul li:first-child {
+    @apply rounded-t-lg;
+  }
+  #contextMenu ul li:hover {
+    @apply bg-primary;
+  }
+
+  .section-title {
+    @apply bg-secondary mb-2 inline-block rounded-tr-xl px-3 py-1 text-2xl font-semibold text-black;
+  }
+
+  .main-quest-card {
+    @apply border-secondary mb-2 border-s-8 ps-2;
+  }
+
+  .quest-title {
+    @apply text-foreground-default text-lg;
+  }
+
+  .quest-started-at {
+    @apply text-foreground-info text-sm underline;
+  }
+
+  .quest-duration {
+    @apply text-foreground-info text-sm;
+  }
+
+  .quest-desc {
+    @apply text-foreground-note text-base;
+  }
+
+  #daily-quest-container {
+    @apply border-card-background bg-primary flex flex-col items-center rounded-lg border-[14px] px-4 inset-shadow-sm;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(24, 22, 22, 1),
+      rgba(24, 22, 22, 1) 5px,
+      rgba(0, 0, 0, 0.2) 5px,
+      rgba(0, 0, 0, 0.2) 15px
+    );
+  }
+  #daily-quest-container .cards-container {
+    @apply max-w-5xl sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5;
+  }
+
+  .box-section-title {
+    @apply text-primary mb-6 text-center;
+  }
+  .box-section-title span {
+    @apply bg-card-background inline-block rounded-b-lg px-3 pb-2 text-2xl font-semibold;
+  }
+
+  .daily-progress {
+    @apply mx-auto mb-4 flex w-full max-w-md items-center justify-between;
+  }
+
+  .progress-circle {
+    @apply h-8 w-8 rounded-full;
+  }
+
+  .progress-line {
+    @apply mx-2 h-1 flex-1;
+  }
+
+  .cards-container {
+    @apply mx-4 mt-4 grid max-w-full grid-cols-1 gap-4;
+  }
+
+  #daily-quest-caption {
+    @apply text-primary -me-4 mt-10 self-end text-right text-sm italic;
+  }
+  #daily-quest-caption span {
+    @apply bg-card-background inline-block rounded-tl-lg ps-3 pt-2;
+  }
+
+  #weekly-quest-container {
+    @apply border-card-background bg-primary rounded-lg border-[14px] px-4 pb-14 inset-shadow-sm;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(24, 22, 22, 1),
+      rgba(24, 22, 22, 1) 5px,
+      rgba(0, 0, 0, 0.2) 5px,
+      rgba(0, 0, 0, 0.2) 15px
+    );
+  }
+  #weekly-quest-container .cards-container {
+    @apply md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .card {
+    @apply bg-card-background text-foreground-default shadow-shadow flex flex-col items-end gap-2 rounded-xl p-2 shadow;
+  }
+  .card .btn-container button {
+    @apply bg-primary rounded-full px-3 py-1 text-sm font-semibold text-black;
+  }
+  .card .btn-container button:hover {
+    @apply bg-accent;
+  }
+  .card .btn-container button.completed {
+    @apply bg-muted;
+  }
+  .card .inset-card {
+    @apply bg-inset-card-background relative min-w-full flex-grow rounded-xl p-4 inset-shadow-sm;
+  }
+  .card .inset-card .title {
+    @apply text-foreground-default mb-1 text-base font-semibold md:mb-2;
+  }
+  .card .inset-card .note {
+    @apply text-foreground-note text-sm;
+  }
+  .card .inset-card .duration {
+    @apply text-foreground-info text-sm;
+  }
+  .card .inset-card .btn-container {
+    @apply absolute right-4 bottom-4;
+  }
+  /* .card .inset-card .btn-container button { */
+  /*   @apply bg-primary flex h-6 w-6 items-center justify-center rounded-full p-1 text-black; */
+  /* } */
+  /* .card .inset-card .btn-container button:hover { */
+  /*   @apply bg-accent; */
+  /* } */
+}

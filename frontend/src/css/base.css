@@ -1,0 +1,26 @@
+@layer base {
+  body {
+    @apply bg-background flex min-h-screen min-w-full flex-col;
+  }
+
+  header {
+    @apply bg-background text-foreground-heading shadow-muted flex items-center justify-between p-4 shadow;
+  }
+  header h1 {
+    @apply text-xl font-bold;
+  }
+  header #date {
+    @apply text-sm;
+  }
+
+  main {
+    @apply flex-1 p-8;
+  }
+
+  footer {
+    @apply bg-background text-muted shadow-muted flex justify-between p-4 text-sm shadow;
+  }
+  footer button:hover {
+    @apply text-accent;
+  }
+}
