@@ -1,6 +1,8 @@
+import { API_BASE } from "./utils.js";
+
 // export async function insertQuest(type, data) {
 //   try {
-//     const res = await fetch("/api/inert", {
+//     const res = await fetch(`${API_BASE}/inert`, {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify({ type, data }),
@@ -17,7 +19,7 @@
 
 export async function getQuests() {
   try {
-    const res = await fetch("/api/all-quests", {
+    const res = await fetch(`${API_BASE}/all-quests`, {
       method: "GET",
     });
     const result = await res.json();
@@ -32,7 +34,7 @@ export async function getQuests() {
 
 export async function getMainQuests(questStatus = "", isExclude = false) {
   try {
-    const res = await fetch("/api/main-quests", {
+    const res = await fetch(`${API_BASE}/main-quests`, {
       method: "GET",
       body: JSON.stringify({ quest_status: questStatus, is_exclude: isExclude }),
     });
@@ -48,7 +50,7 @@ export async function getMainQuests(questStatus = "", isExclude = false) {
 
 export async function getDailyQuests() {
   try {
-    const res = await fetch("/api/daily-quests", {
+    const res = await fetch(`${API_BASE}/daily-quests`, {
       method: "GET",
     });
     const result = await res.json();
@@ -63,7 +65,7 @@ export async function getDailyQuests() {
 
 export async function startMainQuest(questId) {
   try {
-    const res = await fetch("/api/main-quests", {
+    const res = await fetch(`${API_BASE}/main-quests`, {
       method: "PATCH",
       body: JSON.stringify({ id: questId, update_type: "start" }),
     });
@@ -78,7 +80,7 @@ export async function startMainQuest(questId) {
 
 export async function completeMainQuest(questId) {
   try {
-    const res = await fetch("/api/main-quests", {
+    const res = await fetch(`${API_BASE}/main-quests`, {
       method: "PATCH",
       body: JSON.stringify({ id: questId, update_type: "complete" }),
     });
@@ -93,7 +95,7 @@ export async function completeMainQuest(questId) {
 
 export async function completeDailyQuest(questId) {
   try {
-    const res = await fetch("/api/daily-quests", {
+    const res = await fetch(`${API_BASE}/daily-quests`, {
       method: "PATCH",
       body: JSON.stringify({ id: questId }),
     });
@@ -108,7 +110,7 @@ export async function completeDailyQuest(questId) {
 
 export async function completeWeeklyQuest(questId) {
   try {
-    const res = await fetch("/api/weekly-quests", {
+    const res = await fetch(`${API_BASE}/weekly-quests`, {
       method: "PATCH",
       body: JSON.stringify({ id: questId }),
     });

@@ -1,3 +1,5 @@
+export const API_BASE = import.meta.env.DEV ? "/api" : "";
+
 export function upperCaseFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
