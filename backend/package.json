@@ -10,8 +10,8 @@
     "db:insert": "npx wrangler d1 execute northstar-db --local --file=./sql/insert-dummy-data.sql",
     "db:drop": "npx wrangler d1 execute northstar-db --local --file=./sql/drop-table.sql",
     "db:show-all": "npx wrangler d1 execute northstar-db --local --file=./sql/show-table-data.sql",
-    "cron:daily-midnight": "curl http://localhost:5174/cdn-cgi/handler/scheduled?cron=0+17+*+*+*",
-    "cron:weekly-midnight": "curl http://localhost:5174/cdn-cgi/handler/scheduled?cron=0+17+*+*+MON"
+    "cron:daily-midnight": "curl http://localhost:5174/__scheduled?cron=0+17+*+*+*",
+    "cron:weekly-midnight": "curl http://localhost:5174/__scheduled?cron=0+17+*+*+MON"
   },
   "devDependencies": {
     "wrangler": "^4.28.0"
