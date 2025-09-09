@@ -7,12 +7,16 @@ import { jsonResponse } from "../utils/response";
 
 export async function handleDailyQuests(req, env) {
   if (req.method === "GET") {
-    const data = await getDailyQuests(env);
-    return jsonResponse(
-      true,
-      data.results.length > 0 ? data.results : [],
-      null,
-    );
+    try {
+      const data = await getDailyQuests(env);
+      return jsonResponse(
+        true,
+        data.results.length > 0 ? data.results : [],
+        null,
+      );
+    } catch (err) {
+      return jsonResponse(false, null, err.message, 404);
+    }
   } else if (req.method === "POST") {
     let data = {};
     try {
