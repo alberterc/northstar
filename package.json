@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run build:frontend && wrangler dev ./backend/src/index.js",
+    "dev": "npm run build:frontend && wrangler dev --test-scheduled ./backend/src/index.js",
     "deploy": "npm run build:frontend && wrangler deploy ./backend/src/index.js",
     "dev:frontend": "vite --config ./frontend/vite.config.js frontend",
     "build:frontend": "vite build --config ./frontend/vite.config.js frontend",
