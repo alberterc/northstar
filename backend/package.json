@@ -6,6 +6,10 @@
   "scripts": {
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
+    "db-remote:create": "npx wrangler d1 execute northstar-db --remote --file=./sql/create-table.sql",
+    "db-remote:insert": "npx wrangler d1 execute northstar-db --remote --file=./sql/insert-dummy-data.sql",
+    "db-remote:drop": "npx wrangler d1 execute northstar-db --remote --file=./sql/drop-table.sql",
+    "db-remote:show-all": "npx wrangler d1 execute northstar-db --remote --file=./sql/show-table-data.sql",
     "db:create": "npx wrangler d1 execute northstar-db --local --file=./sql/create-table.sql",
     "db:insert": "npx wrangler d1 execute northstar-db --local --file=./sql/insert-dummy-data.sql",
     "db:drop": "npx wrangler d1 execute northstar-db --local --file=./sql/drop-table.sql",
