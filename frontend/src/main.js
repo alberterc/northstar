@@ -5,7 +5,7 @@ import { renderMainQuests } from "./js/quests/main.js";
 import { renderWeeklyQuests } from "./js/quests/weekly.js";
 
 window.addEventListener("DOMContentLoaded", async () => {
-  const quest = await getQuests();
+  const quest = (await getQuests()) || {};
   const currDate = new Date();
   const dailyQuestMax = 3;
 

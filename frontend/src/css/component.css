@@ -31,6 +31,14 @@
     @apply bg-secondary mb-2 inline-block rounded-tr-xl px-3 py-1 text-2xl font-semibold text-black;
   }
 
+  .main-quest-empty-container {
+    @apply border-secondary mb-2 border-s-8 ps-2;
+  }
+
+  .main-quest-empty-container * {
+    @apply text-foreground-info text-base;
+  }
+
   .main-quest-card {
     @apply border-secondary mb-2 border-s-8 ps-2;
   }

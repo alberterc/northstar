@@ -1,4 +1,4 @@
-import { completeMainQuest, getMainQuests, startMainQuest } from "../db.js";
+import { completeMainQuest, startMainQuest } from "../db.js";
 import { clearElementDataset, formatDateTime, getContextMenuPos } from "../utils.js";
 
 export function renderMainQuests(quests) {
@@ -10,35 +10,43 @@ export function renderMainQuests(quests) {
 }
 
 function loadMainCards(quests, questContainerEl) {
-  const cardContainerEl = questContainerEl.querySelector(".main-quest-cards-container");
-  if (cardContainerEl) {
-    const cardTemplate = cardContainerEl.querySelector(".main-quest-card");
-    cardContainerEl.innerHTML = "";
-    if (cardTemplate) {
-      quests.forEach(quest => {
-        const cardClone = cardTemplate.cloneNode(true);
-        if (cardClone && cardClone instanceof HTMLElement) {
-          const titleEl = cardClone.querySelector(".quest-title");
-          const startedAtEl = cardClone.querySelector(".quest-started-at");
-          const durationEl = cardClone.querySelector(".quest-duration");
-          const descriptionEl = cardClone.querySelector(".quest-desc");
+  if (quests && quests.length > 0) {
+    const cardContainerEl = questContainerEl.querySelector(".main-quest-cards-container");
+    if (cardContainerEl) {
+      const cardTemplate = cardContainerEl.querySelector(".main-quest-card");
+      cardContainerEl.innerHTML = "";
+      cardContainerEl.classList.replace("hidden", "block");
+      if (cardTemplate) {
+        quests.forEach(quest => {
+          const cardClone = cardTemplate.cloneNode(true);
+          if (cardClone && cardClone instanceof HTMLElement) {
+            const titleEl = cardClone.querySelector(".quest-title");
+            const startedAtEl = cardClone.querySelector(".quest-started-at");
+            const durationEl = cardClone.querySelector(".quest-duration");
+            const descriptionEl = cardClone.querySelector(".quest-desc");
 
-          cardClone.dataset.questId = quest.id;
-          cardClone.dataset.questStatus = quest.status;
-          if (titleEl && startedAtEl && durationEl && descriptionEl) {
-            titleEl.textContent = quest.title;
-            durationEl.textContent = `Estimated Time: ${quest.duration}`;
-            descriptionEl.textContent = quest.description;
+            cardClone.dataset.questId = quest.id;
+            cardClone.dataset.questStatus = quest.status;
+            if (titleEl && startedAtEl && durationEl && descriptionEl) {
+              titleEl.textContent = quest.title;
+              durationEl.textContent = `Estimated Time: ${quest.duration}`;
+              descriptionEl.textContent = quest.description;
 
-            if (quest.started_at) {
-              startedAtEl.textContent = `Started: ${formatDateTime(quest.started_at)}`;
+              if (quest.started_at) {
+                startedAtEl.textContent = `Started: ${formatDateTime(quest.started_at)}`;
+              }
             }
+          } else {
+            alert("Failed to show main quests.");
           }
-        } else {
-          alert("Failed to show main quests.");
-        }
-        cardContainerEl.appendChild(cardClone);
-      });
+          cardContainerEl.appendChild(cardClone);
+        });
+      }
+    }
+  } else {
+    const emptyContainerEl = questContainerEl.querySelector(".main-quest-empty-container");
+    if (emptyContainerEl) {
+      emptyContainerEl.classList.replace("hidden", "block");
     }
   }
 }
