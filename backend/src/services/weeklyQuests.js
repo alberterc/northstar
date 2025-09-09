@@ -48,21 +48,21 @@ export async function rotateWeeklyQuests(env) {
   // delete previously active weekly quests
   await runExec(env, `DELETE FROM active_weekly_quests`);
 
-  // pick 5 random weekly quests and not used in
+  // pick 9 random weekly quests and not used in
   let data = await runQuery(
     env,
     `SELECT id FROM weekly_quests
     WHERE last_used IS NULL OR last_used < DATE('now', 'weekday 1', '-7 days')
     ORDER BY last_used ASC NULLS FIRST, RANDOM()
-    LIMIT 5`,
+    LIMIT 9`,
   );
   let weekly = data.results;
 
-  // fallback to select 5 weekly quests randomly
+  // fallback to select 9 weekly quests randomly
   if (weekly.length === 0) {
     data = await runQuery(
       env,
-      `SELECT id FROM weekly_quests ORDER BY RANDOM() LIMIT 5`,
+      `SELECT id FROM weekly_quests ORDER BY RANDOM() LIMIT 9`,
     );
     weekly = data.results;
   }
