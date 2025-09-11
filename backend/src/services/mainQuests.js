@@ -23,10 +23,23 @@ export async function getMainQuestsExcl(env, questStatus) {
 }
 
 export async function insertMainQuest(env, quest) {
+  if (quest.description === "") {
+    quest.description = null;
+  } else if (quest.duration === "") {
+    quest.duration = null;
+  } else if (quest.started_at === "") {
+    quest.started_at = null;
+  }
   await runExec(
     env,
-    `INSERT INTO main_quest (title, description, duration) VALUES (?, ?, ?)`,
-    [quest.title, quest.description, quest.duration],
+    `INSERT INTO main_quest (title, description, duration, status, started_at) VALUES (?, ?, ?, ?, ?)`,
+    [
+      quest.title,
+      quest.description,
+      quest.duration,
+      quest.status,
+      quest.started_at,
+    ],
   );
 }
 

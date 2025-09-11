@@ -1,11 +1,40 @@
-import { completeMainQuest, startMainQuest } from "../db.js";
-import { clearElementDataset, formatDateTime, getContextMenuPos } from "../utils.js";
+import { completeMainQuest, insertMainQuest, startMainQuest } from "../db.js";
+import { openModal } from "../shared/modal.js";
+import {
+  clearElementDataset,
+  formatDateTime,
+  getContextMenuPos,
+  renderNewlines,
+} from "../utils.js";
+import modalAddQuest from "../templates/modal-add-main-quest.html?raw";
 
 export function renderMainQuests(quests) {
   const mainQuestContainerEl = document.getElementById("main-quest-container");
   if (mainQuestContainerEl) {
+    loadAddQuestBtn(mainQuestContainerEl);
     loadMainCards(quests, mainQuestContainerEl);
     createContextMenu(mainQuestContainerEl);
+  }
+}
+
+function loadAddQuestBtn(questContainerEl) {
+  const addQuestBtn = questContainerEl.querySelector(".main-quest-add-btn");
+  if (addQuestBtn) {
+    addQuestBtn.addEventListener("click", () => {
+      openModal(modalAddQuest, {
+        showSubmit: true,
+        onSubmit: async data => {
+          for (const [key, val] of Object.entries(data)) {
+            if (val === "") {
+              data[key] = null;
+            }
+          }
+          await insertMainQuest(data).then(() => {
+            location.reload();
+          });
+        },
+      });
+    });
   }
 }
 
@@ -29,9 +58,12 @@ function loadMainCards(quests, questContainerEl) {
             cardClone.dataset.questStatus = quest.status;
             if (titleEl && startedAtEl && durationEl && descriptionEl) {
               titleEl.textContent = quest.title;
-              durationEl.textContent = `Estimated Time: ${quest.duration}`;
-              descriptionEl.textContent = quest.description;
-
+              if (quest.duration) {
+                durationEl.textContent = `Estimated Time: ${quest.duration}`;
+              }
+              if (quest.description) {
+                renderNewlines(descriptionEl, quest.description);
+              }
               if (quest.started_at) {
                 startedAtEl.textContent = `Started: ${formatDateTime(quest.started_at)}`;
               }

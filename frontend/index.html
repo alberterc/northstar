@@ -18,6 +18,9 @@
       <!-- Main quest -->
       <div id="main-quest-container" class="section-container">
         <h2 class="section-title">Priority</h2>
+        <!-- Main quest add container -->
+        <button class="icon-button main-quest-add-btn">+</button>
+
         <!-- Main quest cards container -->
         <div class="main-quest-cards-container hidden">
           <div class="main-quest-card">
@@ -67,7 +70,7 @@
               <span class="duration"></span>
             </div>
             <div class="btn-container">
-              <button>Complete</button>
+              <button class="button">Complete</button>
             </div>
           </div>
         </div>
@@ -94,7 +97,7 @@
               <span class="duration"></span>
             </div>
             <div class="btn-container">
-              <button>Complete</button>
+              <button class="button">Complete</button>
             </div>
           </div>
         </div>
@@ -103,10 +106,21 @@
 
     <!-- Footer -->
     <footer>
-      <button id="insert-quest-btn">Insert Quest</button>
       <button>History</button>
       <button>Settings</button>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal hidden" id="modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <div id="modal-body"></div>
+        <div id="modal-footer">
+          <button class="outline-button close-btn">Close</button>
+          <button class="button submit-btn">Submit</button>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
   </body>

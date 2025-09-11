@@ -18,16 +18,3 @@ window.addEventListener("DOMContentLoaded", async () => {
   renderDailyQuests(currDate, quest.daily, dailyQuestMax);
   renderWeeklyQuests(quest.weekly);
 });
-
-const insertQuestBtn = document.getElementById("insert-quest-btn");
-if (insertQuestBtn != null) {
-  insertQuestBtn.addEventListener("click", () => {
-    // const type = "daily";
-    // const data = {
-    //   title: "Test Quest",
-    //   type: "Dev",
-    //   duration: "20m",
-    // };
-    // insertQuest(type, data);
-  });
-}

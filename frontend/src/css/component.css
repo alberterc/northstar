@@ -1,4 +1,60 @@
 @layer components {
+  .button {
+    @apply bg-primary cursor-pointer rounded-full px-3 py-1 text-sm font-semibold text-black;
+  }
+  .button:hover {
+    @apply bg-accent;
+  }
+  .button.completed {
+    @apply bg-muted cursor-not-allowed;
+  }
+
+  .outline-button {
+    @apply outline-primary text-foreground-default cursor-pointer rounded-full bg-transparent px-3 py-1 text-sm font-semibold text-black outline;
+  }
+  .outline-button:hover {
+    @apply outline-accent bg-white/10;
+  }
+
+  .icon-button {
+    @apply bg-primary cursor-pointer rounded-full px-2 py-1 text-2xl font-semibold text-black;
+  }
+  .icon-button:hover {
+    @apply bg-accent;
+  }
+
+  form label {
+    @apply mb-1 block text-base font-semibold;
+  }
+
+  input[type="text"] {
+    @apply text-foreground-default w-full rounded-lg border-b-2 border-gray-700 bg-white/5 p-2 outline-hidden;
+  }
+  input[type="text"]:focus {
+    @apply border-primary;
+  }
+
+  input[type="datetime-local"] {
+    @apply text-foreground-default w-full rounded-lg border-b-2 border-gray-700 bg-white/5 p-2 outline-hidden;
+  }
+  input[type="datetime-local"]:focus {
+    @apply border-primary;
+  }
+
+  textarea {
+    @apply text-foreground-default w-full resize-none rounded-lg border-b-2 border-gray-700 bg-white/5 p-2 outline-hidden;
+  }
+  textarea:focus {
+    @apply border-primary;
+  }
+
+  select {
+    @apply text-foreground-default w-full cursor-pointer rounded-lg border-b-2 border-gray-700 bg-white/5 p-2 outline-hidden;
+  }
+  select:focus {
+    @apply border-primary;
+  }
+
   .section-container {
     @apply mb-8;
   }
@@ -6,11 +62,9 @@
   #contextMenu {
     @apply bg-muted shadow-shadow absolute z-1000 block hidden min-w-[150px] rounded-lg whitespace-nowrap shadow;
   }
-
   #contextMenu ul {
     @apply text-foreground-default list-none rounded-lg text-sm;
   }
-
   #contextMenu ul li {
     @apply cursor-pointer py-1 ps-2;
   }
@@ -28,17 +82,18 @@
   }
 
   .section-title {
-    @apply bg-secondary mb-2 inline-block rounded-tr-xl px-3 py-1 text-2xl font-semibold text-black;
+    @apply bg-secondary mb-2 inline-block px-2 py-1 text-2xl font-semibold text-black;
   }
 
+  .main-quest-add-btn {
+    @apply rounded-none rounded-tr-full ps-1;
+  }
   .main-quest-empty-container {
     @apply border-secondary mb-2 border-s-8 ps-2;
   }
-
   .main-quest-empty-container * {
     @apply text-foreground-info text-base;
   }
-
   .main-quest-card {
     @apply border-secondary mb-2 border-s-8 ps-2;
   }
@@ -46,15 +101,12 @@
   .quest-title {
     @apply text-foreground-default text-lg;
   }
-
   .quest-started-at {
     @apply text-foreground-info text-sm underline;
   }
-
   .quest-duration {
     @apply text-foreground-info text-sm;
   }
-
   .quest-desc {
     @apply text-foreground-note text-base;
   }
@@ -83,15 +135,12 @@
   .daily-progress {
     @apply mx-auto mb-4 flex w-full max-w-md items-center justify-between;
   }
-
   .progress-circle {
     @apply h-8 w-8 rounded-full;
   }
-
   .progress-line {
     @apply mx-2 h-1 flex-1;
   }
-
   .cards-container {
     @apply mx-4 mt-4 grid max-w-full grid-cols-1 gap-4;
   }
@@ -120,15 +169,6 @@
   .card {
     @apply bg-card-background text-foreground-default shadow-shadow flex flex-col items-end gap-2 rounded-xl p-2 shadow;
   }
-  .card .btn-container button {
-    @apply bg-primary rounded-full px-3 py-1 text-sm font-semibold text-black;
-  }
-  .card .btn-container button:hover {
-    @apply bg-accent;
-  }
-  .card .btn-container button.completed {
-    @apply bg-muted;
-  }
   .card .inset-card {
     @apply bg-inset-card-background relative min-w-full flex-grow rounded-xl p-4 inset-shadow-sm;
   }
@@ -144,10 +184,26 @@
   .card .inset-card .btn-container {
     @apply absolute right-4 bottom-4;
   }
-  /* .card .inset-card .btn-container button { */
-  /*   @apply bg-primary flex h-6 w-6 items-center justify-center rounded-full p-1 text-black; */
-  /* } */
-  /* .card .inset-card .btn-container button:hover { */
-  /*   @apply bg-accent; */
-  /* } */
+
+  .modal {
+    @apply fixed inset-0 z-50 items-center justify-center;
+  }
+  .modal .modal-overlay {
+    @apply absolute inset-0 bg-black/50 backdrop-blur-sm;
+  }
+  .modal .modal-content {
+    @apply bg-background relative z-10 flex w-full max-w-md flex-col items-end rounded-2xl p-4;
+  }
+  #modal-body {
+    @apply text-foreground-default mt-4 mb-2 w-full text-sm;
+  }
+  #modal-body .header h2 {
+    @apply bg-secondary inline-block px-2 py-1 text-xl font-semibold text-black;
+  }
+  #modal-footer {
+    @apply flex flex-row gap-2;
+  }
+  #modal-footer button {
+    @apply mt-5;
+  }
 }

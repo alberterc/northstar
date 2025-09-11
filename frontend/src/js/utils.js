@@ -50,3 +50,12 @@ export function formatDateTime(dateTimeStr) {
     hour12: true,
   }).format(date);
 }
+
+export function renderNewlines(containerEl, str) {
+  str.split("\n").forEach((line, index, arr) => {
+    containerEl.appendChild(document.createTextNode(line));
+    if (index < arr.length - 1) {
+      containerEl.appendChild(document.createElement("br"));
+    }
+  });
+}

@@ -1,0 +1,31 @@
+<div class="header">
+  <h2>Add Main Quest</h2>
+</div>
+<div class="body">
+  <form id="main-quest-form" class="mt-5 space-y-5">
+    <div>
+      <label>Title<span> *</span></label>
+      <input type="text" placeholder="Quest Title..." name="title" required />
+    </div>
+    <div>
+      <label>Status<span> *</span></label>
+      <select name="status" required>
+        <option value="pending">Pending</option>
+        <option value="in_progress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+    <div>
+      <label>Description</label>
+      <textarea placeholder="Quest description..." rows="5" name="description"></textarea>
+    </div>
+    <div>
+      <label>Estimated time</label>
+      <input type="text" placeholder="2 months, 3 days, 1 week, etc..." name="duration" />
+    </div>
+    <div>
+      <label>Started at</label>
+      <input type="datetime-local" name="started_at" />
+    </div>
+  </form>
+</div>

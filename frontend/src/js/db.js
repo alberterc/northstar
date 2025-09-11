@@ -93,6 +93,21 @@ export async function completeMainQuest(questId) {
   }
 }
 
+export async function insertMainQuest(newQuest) {
+  try {
+    const res = await fetch(`${API_BASE}/main-quests`, {
+      method: "POST",
+      body: JSON.stringify(newQuest),
+    });
+    const result = await res.json();
+    if (!res.ok && !result.success) {
+      throw new Error(result.error || "Unknown error occured when submitting data.");
+    }
+  } catch (err) {
+    console.log(`Failed to add quest: ${err.message}`);
+  }
+}
+
 export async function completeDailyQuest(questId) {
   try {
     const res = await fetch(`${API_BASE}/daily-quests`, {
